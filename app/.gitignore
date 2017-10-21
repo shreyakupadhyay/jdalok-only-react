@@ -3,6 +3,11 @@
 # dependencies
 /node_modules
 
+#ignored repos
+/src/components/Login
+/src/components/Registration
+/src/components/Try
+
 # testing
 /coverage
 

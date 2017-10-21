@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import style from './Form.css';
+import style from './Register.css';
 
 
 const styles = {
@@ -8,7 +8,7 @@ const styles = {
     }
 }
 
-class Form extends Component {
+class Register extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -28,10 +28,15 @@ class Form extends Component {
                     <input type="text" required/>
                     <label>Email</label>
                 </div>
+
+                <div class="group">      
+                    <input type="password" required/>
+                    <label>Password</label>
+                </div>
                 
                 </form> 
         )
     }
 }
 
-export default Form;
+export default Register;

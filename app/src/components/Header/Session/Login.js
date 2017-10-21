@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import style from './FormSignIn.css';
+import style from './Login.css';
 
 
 const styles = {
@@ -21,17 +21,12 @@ class Form extends Component {
   
                 <div class="group">      
                     <input type="text" required/>
-                    <label>Name</label>
+                    <label>Username</label>
                 </div>
                     
                 <div class="group">      
-                    <input type="text" required/>
-                    <label>Email</label>
-                </div>
-
-                <div class="group">      
-                    <input type="text" required/>
-                    <label>Email</label>
+                    <input type="password" required/>
+                    <label>Password</label>
                 </div>
                 
                 </form> 
