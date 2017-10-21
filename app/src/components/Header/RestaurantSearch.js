@@ -10,7 +10,7 @@ const styles = {
     }
 }
 
-class SearchExampleStandard extends Component {
+class RestaurantSearch extends Component {
     constructor(props){
         super(props)
         this.handleResultData = this.handleResultData.bind(this)
@@ -78,4 +78,4 @@ class SearchExampleStandard extends Component {
   }
 }
 
-export default SearchExampleStandard;
+export default RestaurantSearch;

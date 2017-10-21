@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './RestaurantList.css';
+import './DashBoard.css';
 import 'semantic-ui-css/semantic.min.css';
 import { Button, Card, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom'; 
 
-import LocationSearchHeader from './Header/LocationSearch';
-import SearchExampleStandard from './Header/Search';
+import LocationSearch from './Header/LocationSearch';
+import RestaurantSearch from './Header/RestaurantSearch';
 import HeaderButtons from './Header/Buttons';
 
 const styles = {
@@ -34,7 +34,7 @@ const styles = {
 
 const urlCall = "http://localhost:8000/api/v1/restaurants/jhansi/index"
 
-class RestaurantList extends Component {
+class DashBoard extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -74,8 +74,8 @@ class RestaurantList extends Component {
                 <div style={ styles.imagery}>
                 </div>
                 <div style={styles.nav}>
-                    <LocationSearchHeader />
-                    <SearchExampleStandard data={restaurants}/>                   
+                    <LocationSearch />
+                    <RestaurantSearch data={restaurants}/>                   
                     <HeaderButtons />
                 </div>
                 <div className="right-ct-container col-md-10 col-sm-10  padding0" style={ styles.container }>
@@ -112,4 +112,4 @@ class RestaurantList extends Component {
     }
 }
 
-export default RestaurantList;
+export default DashBoard;
