@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import './RestaurantList.css';
 import 'semantic-ui-css/semantic.min.css';
-import { Button, Card, Image } from 'semantic-ui-react'
+import { Button, Card, Image } from 'semantic-ui-react';
+import { Link } from 'react-router-dom'; 
 
-import SearchExampleStandard from './Search';
-import Header from './Header';
+import LocationSearchHeader from './Header/LocationSearch';
+import SearchExampleStandard from './Header/Search';
+import HeaderButtons from './Header/Buttons';
 
 const styles = {
     container: {
@@ -18,6 +20,15 @@ const styles = {
         display: "flex",
         justifyContent: "flex-end",
         padding: "10px 0"
+    },
+    imagery: { 
+        backgroundImage: 'url(' + 'https://i.stack.imgur.com/3RzQA.jpg' + ')',
+        backgroundSize: "cover",
+        minHeight: "500px",
+        minWidth: "100%"
+    },
+    root: {
+        width: "100%"
     }
 }
 
@@ -59,15 +70,20 @@ class RestaurantList extends Component {
         if(!this.state.restaurantData) return <p>Loading.....</p>
         var restaurants = this.state.restaurantData.restaurants;
         return (
-            <div>
+            <div style={ styles.root }>
+                <div style={ styles.imagery}>
+                </div>
                 <div style={styles.nav}>
+                    <LocationSearchHeader />
                     <SearchExampleStandard data={restaurants}/>                   
-                    <Header />
+                    <HeaderButtons />
                 </div>
                 <div className="right-ct-container col-md-10 col-sm-10  padding0" style={ styles.container }>
                 { restaurants.map((item) => (
-                        <Card.Group key={item.id}>
-                            <Card style={ styles.cards }>
+                        <Link to={`/jhansi/restaurants/${item.name}`}>
+                        
+                            <Card.Group key={item.id}>
+                                <Card style={ styles.cards }>
                                     <Card.Content>
                                         <Image floated='right' size='mini' src='https://content.jdmagicbox.com/comp/jhansi/m5/9999px510.x510.160819185440.p5m5/catalogue/the-handi-restrurent-jhansi-xzojl.jpg' />
                                         <Card.Header>
@@ -88,6 +104,7 @@ class RestaurantList extends Component {
                                     </Card.Content>
                                 </Card>
                             </Card.Group>
+                        </Link>
                     ) )}
                 </div>
             </div>

@@ -1,8 +1,14 @@
 import _ from 'lodash'
-import faker from 'faker'
 import React, { Component } from 'react'
 import { Search, Grid, Header } from 'semantic-ui-react'
 
+
+const styles = {
+    padding: {
+        paddingRight: "5px",
+        paddingLeft: "5px"
+    }
+}
 
 class SearchExampleStandard extends Component {
     constructor(props){
@@ -54,7 +60,7 @@ class SearchExampleStandard extends Component {
     const { isLoading, value, results } = this.state
 
     return (
-      <Grid>
+      <Grid style={ styles.padding }>
         <Grid.Column width={8}>
           <Search
             loading={isLoading}

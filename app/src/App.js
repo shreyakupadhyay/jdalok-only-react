@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import RestaurantList from './components/RestaurantList';
+import Routes from './components/Main';
 
 
 class App extends Component {
   render() {
     return (
-      <RestaurantList />
+      <Routes />
     );
   }
 }
