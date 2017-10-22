@@ -4,9 +4,9 @@ import 'semantic-ui-css/semantic.min.css';
 import { Button, Card, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom'; 
 
-import LocationSearch from './Header/LocationSearch';
-import RestaurantSearch from './Header/RestaurantSearch';
-import HeaderButtons from './Header/Buttons';
+import LocationSearch from './Header/Search/LocationSearch';
+import RestaurantSearch from './Header/Search/RestaurantSearch';
+import LoggedOutHeader from './Header/LoggedOutHeader/LoggedOutHeader';
 
 const styles = {
     container: {
@@ -76,7 +76,7 @@ class DashBoard extends Component {
                 <div style={styles.nav}>
                     <LocationSearch />
                     <RestaurantSearch data={restaurants}/>                   
-                    <HeaderButtons />
+                    <LoggedOutHeader />
                 </div>
                 <div className="right-ct-container col-md-10 col-sm-10  padding0" style={ styles.container }>
                 { restaurants.map((item) => (

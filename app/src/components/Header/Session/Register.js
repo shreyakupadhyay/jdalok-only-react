@@ -70,8 +70,8 @@ class Register extends Component {
                     <form style={styles.authModel}>
     
                         <div className="group">      
-                        <input type="text" value={this.state.username} onChange={(event) => this.setState({username:event.target.value})} required/>
-                            <label>Name</label>
+                            <input type="text" value={this.state.username} onChange={(event) => this.setState({username:event.target.value})} required/>
+                            <label>UserName</label>
                         </div>
                             
                         <div className="group">      
@@ -80,7 +80,7 @@ class Register extends Component {
                         </div>
 
                         <div className="group">      
-                        <input type="password" value={this.state.password} onChange={(event) => this.setState({password:event.target.value})} required/>
+                            <input type="password" value={this.state.password} onChange={(event) => this.setState({password:event.target.value})} required/>
                             <label>Password</label>
                         </div>
                         

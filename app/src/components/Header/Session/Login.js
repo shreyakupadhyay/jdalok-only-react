@@ -3,6 +3,8 @@ import style from './Login.css';
 import 'semantic-ui-css/semantic.min.css';
 import { Popup, Button, Header, Image, Modal, Checkbox } from 'semantic-ui-react'
 import axios from 'axios';
+import { Redirect } from 'react-router-dom'
+  
 
 const styles = {
     authModel: {
@@ -23,6 +25,7 @@ class Login extends Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.isAuthenticated = this.isAuthenticated.bind(this);
     }
     
 
@@ -35,6 +38,7 @@ class Login extends Component {
     close = () => this.setState({open: false})
 
     handleSubmit(event){
+        event.preventDefault();
         var apiBaseUrl = "http://localhost:4000/signin/";
         var payload = {
             "email": this.state.username,
@@ -44,18 +48,28 @@ class Login extends Component {
             method: 'post',
             body: payload
         })
-        .then((response) => response.json())
+        .then((response) => {
+            response.json()
+            localStorage.setItem('token',response.body.token)
+            // this.setState();
+            this.setState({open:false})  // close window only when there is successful login
+         
+        })
         .catch((error) => console.log(error));
+    }
 
-        this.setState({open:false})
+    isAuthenticated(){
+        const token = localStorage.getItem('token');
+        return token && token.length > 10
     }
 
     render() {
         const { open, dimmer, closeOnEscape, closeOnRootNodeClick } = this.state
-        
+        const isAuth = this.isAuthenticated(); 
 
         return (
             <div>
+            {isAuth ? <Redirect to={{pathname:'/home/restaurants'}} /> : (  <div>
                 <Button basic color='green' style={ styles.button } onClick={this.closeConfigShow(false, false,'blurring','signin')}>SignIn</Button>
                 
                 <Modal dimmer={dimmer} 
@@ -84,7 +98,8 @@ class Login extends Component {
                         <Button positive icon='checkmark' labelPosition='right' content="Submit" onClick={this.handleSubmit} />
                     </Modal.Actions>
                 </Modal>     
-            </div>   
+            </div> )}  
+            </div>
         )
     }
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'semantic-ui-css/semantic.min.css';
-import Login from './Session/Login';
-import Register from './Session/Register';
+import Login from '../Session/Login';
+import Register from '../Session/Register';
 
 
 
