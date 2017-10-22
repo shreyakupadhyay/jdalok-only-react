@@ -4,15 +4,19 @@ import Login from '../Session/Login';
 import Register from '../Session/Register';
 
 
+const styles = {
+  flex: {
+    display: 'flex'
+  }
+}
 
 class SignIn extends Component {
   
   render() {
     return (
-      <div>
+      <div style={styles.flex}>
         <Login />
         <Register />
-        
       </div>
     )
   }

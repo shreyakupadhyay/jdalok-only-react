@@ -7,6 +7,10 @@
     height: 80px;
   }
   
+  .rowflex{
+    flex-grow: 1
+  }
+  
   .App-header {
     background-color: #222;
     height: 150px;

@@ -32,6 +32,7 @@ const styles = {
     }
 }
 
+
 const urlCall = "http://localhost:8000/api/v1/restaurants/jhansi/index"
 
 class DashBoard extends Component {
