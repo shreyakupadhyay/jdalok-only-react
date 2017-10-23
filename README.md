@@ -3,4 +3,9 @@ building alok zomato prototype without redux
 
 
 # Installation instructions
-git clone Repo
+```sh
+$ git clone 
+$ cd jdalok-only-react
+$ npm install
+$ yarn start
+```
