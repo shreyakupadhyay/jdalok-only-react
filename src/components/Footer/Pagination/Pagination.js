@@ -1,16 +1,18 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
+import _ from 'lodash';
 
-const propTypes = {
-    items: PropTypes.array.isRequired,
-    onChangePage: PropTypes.func.isRequired,
-    initialPage: PropTypes.number
-}
+
+// const propTypes = {
+//     items: PropTypes.array.isRequired,
+//     onChangePage: PropTypes.func.isRequired,
+//     initialPage: PropTypes.number
+// }
 
 const defaultProps = {
     initialPage: 1
 }
 
-class Pagination extends React.Component {
+class Pagination extends Component {
     constructor(props) {
         super(props);
         this.state = { pager: {} };
@@ -100,29 +102,29 @@ class Pagination extends React.Component {
         }
 
         return (
-            <ul className="pagination">
-                <li className={pager.currentPage === 1 ? 'disabled' : ''}>
-                    <a onClick={() => this.setPage(1)}>First</a>
-                </li>
-                <li className={pager.currentPage === 1 ? 'disabled' : ''}>
-                    <a onClick={() => this.setPage(pager.currentPage - 1)}>Previous</a>
-                </li>
+            <div className="ui pagination menu">
+                <a className={pager.currentPage === 1 ? 'disabled' : ''}>
+                    <a onClick={() => this.setPage(1)} className="item active">First</a>
+                </a>
+                <a className={pager.currentPage === 1 ? 'disabled' : ''}>
+                    <a onClick={() => this.setPage(pager.currentPage - 1)} className="item active">Previous</a>
+                </a>
                 {pager.pages.map((page, index) =>
-                    <li key={index} className={pager.currentPage === page ? 'active' : ''}>
-                        <a onClick={() => this.setPage(page)}>{page}</a>
-                    </li>
+                    <a key={index} className={pager.currentPage === page ? 'active' : ''}>
+                        <a onClick={() => this.setPage(page)} className="item">{page}</a>
+                    </a>
                 )}
-                <li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
-                    <a onClick={() => this.setPage(pager.currentPage + 1)}>Next</a>
-                </li>
-                <li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
-                    <a onClick={() => this.setPage(pager.totalPages)}>Last</a>
-                </li>
-            </ul>
+                <a className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
+                    <a onClick={() => this.setPage(pager.currentPage + 1)} className="item active">Next</a>
+                </a>
+                <a className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
+                    <a onClick={() => this.setPage(pager.totalPages)} className="item active">Last</a>
+                </a>
+            </div>
         );
     }
 }
 
-Pagination.propTypes = propTypes;
+// Pagination.propTypes = propTypes;
 Pagination.defaultProps
 export default Pagination;
