@@ -15,12 +15,12 @@ class Home extends Component {
     }
 
     isAuthenticated(){
-        const token = localStorage.getItem('token');
+        const token = localStorage.getItem('auth_token');
         return token && token.length > 10
     }
 
     handleLogout(){
-        localStorage.removeItem('token');
+        localStorage.removeItem('auth_token');
         this.setState({});
     }
 

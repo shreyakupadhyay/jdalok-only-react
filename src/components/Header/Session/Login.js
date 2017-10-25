@@ -39,18 +39,23 @@ class Login extends Component {
 
     handleSubmit(event){
         event.preventDefault();
-        var apiBaseUrl = "http://localhost:4000/signin/";
-        var payload = {
-            "email": this.state.username,
-            "password": this.state.password
-        }
-        fetch(apiBaseUrl, {
-            method: 'post',
-            body: payload
+
+        var formData  = new FormData();
+        formData.append("email", this.state.username);
+        formData.append("password", this.state.password);
+
+        fetch("http://localhost:8000/users/authenticate_user", {
+            method: 'POST',
+            body: formData
         })
         .then((response) => {
-            response.json()
-            localStorage.setItem('token',response.body.token)
+            var auth_token = response.text()
+            auth_token.then((value) => {
+                var value1 = JSON.parse(value)['auth_token']
+                localStorage.setItem('auth_token',value1)
+                this.setState({})
+        
+            })
             // this.setState();
             this.setState({open:false})  // close window only when there is successful login
          
@@ -59,8 +64,8 @@ class Login extends Component {
     }
 
     isAuthenticated(){
-        const token = localStorage.getItem('token');
-        return token && token.length > 10
+        const auth_token = localStorage.getItem('auth_token');
+        return auth_token && auth_token.length > 10
     }
 
     render() {

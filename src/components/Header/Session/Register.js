@@ -33,18 +33,19 @@ class Register extends Component {
     close = () => this.setState({open: false})    
 
     handleSubmit(event){
-        console.log(this.state.open)
+        event.preventDefault();
+        
         this.setState({open:false})
         
-        var apiBaseUrl = "http://localhost:4000/signin/";
-        var payload = {
-            "email": this.state.username,
-            "password": this.state.password,
-            "username":this.state.username
-        }
-        fetch(apiBaseUrl, {
+        var formData  = new FormData();
+        formData.append("email", this.state.username);
+        formData.append("password", this.state.password);
+        formData.append("name", this.state.username);
+
+
+        fetch("http://localhost:8000/users/registrations", {
             method: 'post',
-            body: payload
+            body: formData
         })
         .then((response) => response.json())
         .catch((error) => console.log(error));
