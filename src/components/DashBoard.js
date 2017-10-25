@@ -86,10 +86,6 @@ class DashBoard extends Component {
         if(this.state.requestFailed) return <p>Failed!!!</p>        
         if(!this.state.restaurantData) return <p>Loading.....</p>
         var restaurants = this.state.restaurantData.restaurants;
-        // if( this.state.exampleItems.length == 0){
-        //     return null
-        // }
-        // else
             return (
                 <div style={ styles.root }>
                     {/* <div style={ styles.imagery}>
