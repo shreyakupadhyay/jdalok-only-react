@@ -1,10 +1,4 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:latest' 
-            args '-p 3000:3000' 
-        }
-    }
     environment {
         CI = 'true' 
     }
@@ -12,12 +6,11 @@ pipeline {
         stage('Build') { 
             steps {
                 sh 'npm install' 
-                sh 'npm start'
             }
         }
         stage('Test') { 
             steps {
-                sh 'ruby reactWebsiteTestSignInSignUp.rb'
+                sh 'ruby ./jenkinsTest/reactWebsiteTestSignInSignUp.rb'
                 sh 'bash ./jenkinsTest/test.sh' 
             }
         }
