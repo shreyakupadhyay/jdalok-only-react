@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Test') { 
             steps {
-                sh '/home/shreyakupadhyay/Desktop/CollegeCourses/SEM8/PE/jenkinsTest/test.sh' 
+                sh './jenkinsTest/test.sh' 
             }
         }
     }
