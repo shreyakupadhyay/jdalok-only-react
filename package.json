@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.16.2",
+    "jest-cli": "^21.2.1",
     "lodash-node": "^3.10.2",
     "material-ui": "^0.19.4",
     "muicss": "^0.9.27",
@@ -19,7 +20,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "jest",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "jest": "^21.2.1"
   }
 }
