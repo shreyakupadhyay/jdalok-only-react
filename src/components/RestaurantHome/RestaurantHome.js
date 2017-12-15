@@ -54,16 +54,17 @@ class RestaurantHome extends Component {
         // if(!this.state.restaurantData) return <p>Loading.....</p>
         return (
             <div>
-                <div class="progressive_img_loaded" style={{ backgroundImage: 'url(&quot;https://b.zmtcdn.com/data/pictures/chains/6/50066/481a8438b57d25815e87ee14c75aa3e5.jpg?resize=1217%3A817&amp;crop=1200%3A464%3B7%2C70&quot;); opacity: 1;'}}>
+                <Breadcrumb size='large' style={{ padding: '10px' }}>
+                    <Breadcrumb.Section link>Home</Breadcrumb.Section>
+                    <Breadcrumb.Divider icon='right chevron' />
+                    <Breadcrumb.Section link>Jhansi</Breadcrumb.Section>
+                    <Breadcrumb.Divider icon='right chevron' />
+                    <Breadcrumb.Section active>Restaurant Information</Breadcrumb.Section>
+                </Breadcrumb>
+                <div class="portrait">
+                    <img src="https://images.pexels.com/photos/729163/pexels-photo-729163.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" />
                 </div>
-            <Breadcrumb size='large' style={{ padding: '10px' }}>
-                <Breadcrumb.Section link>Home</Breadcrumb.Section>
-                <Breadcrumb.Divider icon='right chevron' />
-                <Breadcrumb.Section link>Jhansi</Breadcrumb.Section>
-                <Breadcrumb.Divider icon='right chevron' />
-                <Breadcrumb.Section active>Restaurant Information</Breadcrumb.Section>
-            </Breadcrumb>
-            <Tab menu={{ pointing: true }} panes={panes}/>
+                <Tab menu={{ pointing: true }} panes={panes}/>
           </div>
         )
     }

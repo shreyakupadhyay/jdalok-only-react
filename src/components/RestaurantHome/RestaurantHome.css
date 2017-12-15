@@ -77,3 +77,13 @@ div {
 .fontsize1 {
     font-size: 14px;
 }
+
+.portrait {
+    height: 299px;
+    width: 100%;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
