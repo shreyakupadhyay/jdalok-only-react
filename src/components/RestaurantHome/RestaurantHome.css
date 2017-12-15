@@ -1,0 +1,79 @@
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row;
+}
+
+.flex-container {
+    display: flex;
+    background: #000;
+}
+
+.box {
+    height: 100px;
+    min-width: 100px;
+    flex-grow: 1;
+}
+
+.one {
+    background: red;
+}
+
+.two {
+    background: blue;
+}
+
+.three {
+    background: green;
+}
+
+.sidebar {
+    background: #000;
+    min-height: 100px;
+    min-width: 100px;
+    margin: 0 5px;
+    
+}
+
+.main {
+    width: 60%;
+    margin: 0 5px;
+}
+
+div {
+    flex-grow: 1;    
+}
+
+
+.ui.table tr td {
+    border-top-width: 0px;
+    border-top-style: solid;
+    border-top-color: rgba(34, 36, 38, 0.1);
+}
+
+.ui.celled.table tr td {
+    border-left-width: 0px;
+    border-left-style: solid;
+    border-left-color: rgba(34, 36, 38, 0.1);
+}
+
+.zgreen {
+    color: #099e44;
+}
+
+.fontsize2 {
+    font-size: 18px;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.zred {
+    color: #cb202d;
+}
+
+.fontsize1 {
+    font-size: 14px;
+}

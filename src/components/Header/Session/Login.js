@@ -75,7 +75,7 @@ class Login extends Component {
         return (
             <div>
             {isAuth ? <Redirect to={{pathname:'/home/restaurants'}} /> : (  <div>
-                <Button basic color='green' style={ styles.button } onClick={this.closeConfigShow(false, false,'blurring','signin')}>SignIn</Button>
+                <Button basic color='green' style={ styles.button } name="signin" onClick={this.closeConfigShow(false, false,'blurring','signin')}>SignIn</Button>
                 
                 <Modal dimmer={dimmer} 
                         closeOnEscape={closeOnEscape}
@@ -88,19 +88,19 @@ class Login extends Component {
                         <form style={styles.authModel} >
     
                             <div className="group">      
-                                <input type="text" value={this.state.username} onChange={(event) => this.setState({username:event.target.value})} required/>
+                                <input name="username" type="text" value={this.state.username} onChange={(event) => this.setState({username:event.target.value})} required/>
                                 <label>Username</label>
                             </div>
                                 
                             <div className="group">      
-                                <input type="password" value={this.state.password} onChange={(event) => this.setState({password:event.target.value})} required/>
+                                <input name="password" type="password" value={this.state.password} onChange={(event) => this.setState({password:event.target.value})} required/>
                                 <label>Password</label>
                             </div>
                             
                         </form> 
 
                         <Modal.Actions>
-                        <Button positive icon='checkmark' labelPosition='right' content="Submit" onClick={this.handleSubmit} />
+                        <Button positive icon='checkmark' name="submit" labelPosition='right' content="Submit" onClick={this.handleSubmit} />
                     </Modal.Actions>
                 </Modal>     
             </div> )}  

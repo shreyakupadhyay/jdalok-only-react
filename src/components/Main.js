@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import DashBoard from './DashBoard'
 import Home from './Home/Home'
 import LoggedInHeader from './Header/LoggedInHeader/LoggedInHeader'
-
+import RestaurantHome from './RestaurantHome/RestaurantHome'
 
 const Main = () => (
     <main>
@@ -11,7 +11,7 @@ const Main = () => (
             <Route exact path='/' component={DashBoard}/>
             {/* <Route path='/home' component={LoggedInHeader}/> */}
             <Route exact path='/home/restaurants' component={Home}/>    
-                    
+            <Route exact path='/jhansi/restaurants/:id' component={RestaurantHome}/>    
           
           {/* <Route exact path='/restaurant' component={RestaurantData}/> */}
           {/* <Route exact path='/form' component={Login}/> */}

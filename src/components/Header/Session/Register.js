@@ -58,7 +58,7 @@ class Register extends Component {
         
         return (
             <div>
-                <Button basic color='green' style={ styles.button } onClick={this.closeConfigShow(false, false,'blurring','signup')}>SignUp</Button>
+                <Button basic color='green' style={ styles.button } name="signup" onClick={this.closeConfigShow(false, false,'blurring','signup')}>SignUp</Button>
                 
                 <Modal dimmer={dimmer} 
                     closeOnEscape={closeOnEscape}

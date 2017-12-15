@@ -8,7 +8,7 @@ class LoggedInHeader extends Component {
     render(){
         return (
             <div>
-               <Button basic color='green' onClick={this.props.handleLogout}>Logout</Button>
+               <Button basic color='green' name="logout" onClick={this.props.handleLogout}>Logout</Button>
             </div>
         )
     }

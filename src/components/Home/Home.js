@@ -33,7 +33,9 @@ class Home extends Component {
                 {!isAuth ? <Redirect to={{pathname:'/'}} /> : (
                     <div>
                         <LoggedInHeader handleLogout={this.handleLogout}/>
-                        <h1>Hello</h1>
+                        <div id="hello">
+                            <h1>Hello</h1>
+                        </div>
                     </div>
                 )}
                 

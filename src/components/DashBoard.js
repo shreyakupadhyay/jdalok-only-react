@@ -86,48 +86,43 @@ class DashBoard extends Component {
         if(this.state.requestFailed) return <p>Failed!!!</p>        
         if(!this.state.restaurantData) return <p>Loading.....</p>
         var restaurants = this.state.restaurantData.restaurants;
-            return (
-                <div style={ styles.root }>
-                    {/* <div style={ styles.imagery}>
-                    </div> */}
-                    <div style={styles.nav}>
-                        <LocationSearch />
-                        <RestaurantSearch data={restaurants}/>                   
-                        <LoggedOutHeader />
-                    </div>
-                    <div className="right-ct-container col-md-10 col-sm-10  padding0" style={ styles.container }>
-                    { this.state.pageOfItems.map((item) => (
-                            <Link to={`/jhansi/restaurants/${item.name}`}>
-                            
-                                <Card.Group key={item.id}>
-                                    <Card style={ styles.cards }>
-                                        <Card.Content>
-                                            <Image floated='right' size='mini' src='https://content.jdmagicbox.com/comp/jhansi/m5/9999px510.x510.160819185440.p5m5/catalogue/the-handi-restrurent-jhansi-xzojl.jpg' />
-                                            <Card.Header>
-                                            {item.name}
-                                            </Card.Header>
-                                            <Card.Meta>
-                                            {item.city}
-                                            </Card.Meta>
-                                            <Card.Description>
-                                            {item.address}
-                                            </Card.Description>
-                                        </Card.Content>
-                                        <Card.Content extra>
-                                            <div className='ui two buttons'>
-                                            <Button basic color='green'>Show Details</Button>
-                                            <Button basic color='red'>Contact</Button>
-                                            </div>
-                                        </Card.Content>
-                                    </Card>
-                                </Card.Group>
-                            </Link>
-                        ) )}
-                    <Pagination items={this.state.exampleItems} onChangePage={this.onChangePage} />                        
-                    </div>
-                    
+        return (
+            <div style={ styles.root }>
+                {/* <div style={ styles.imagery}>
+                </div> */}
+                <div style={styles.nav}>
+                    <LocationSearch />
+                    <RestaurantSearch data={restaurants}/>                   
+                    <LoggedOutHeader />
                 </div>
-            );
+                <div className="right-ct-container col-md-10 col-sm-10  padding0" style={ styles.container }>
+                { this.state.pageOfItems.map((item) => (
+                            <Card.Group key={item.id}>
+                                <Card style={ styles.cards }>
+                                    <Card.Content>
+                                        <Image floated='right' size='mini' src='https://content.jdmagicbox.com/comp/jhansi/m5/9999px510.x510.160819185440.p5m5/catalogue/the-handi-restrurent-jhansi-xzojl.jpg' />
+                                        <Card.Header>
+                                        <Link to={`/jhansi/restaurants/${item.id}`} style={{color: 'black'}}>
+                                            {item.name}
+                                        </Link>
+                                        </Card.Header>
+                                        <Card.Meta>
+                                        <Link to={`/jhansi/restaurants/${item.city}`} style={{color: 'black'}}>
+                                            {item.city}
+                                        </Link>
+                                        </Card.Meta>
+                                        <Card.Description>
+                                        {item.address}
+                                        </Card.Description>
+                                    </Card.Content>
+                                </Card>
+                            </Card.Group>
+                    ) )}
+                <Pagination items={this.state.exampleItems} onChangePage={this.onChangePage} />                        
+                </div>
+                
+            </div>
+        );
     }
 }
 
