@@ -5,7 +5,7 @@ import Pagination from './Footer/Pagination/Pagination';
 
 import 'semantic-ui-css/semantic.min.css';
 import { Button, Card, Image } from 'semantic-ui-react';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 
 import LocationSearch from './Header/Search/LocationSearch';
 import RestaurantSearch from './Header/Search/RestaurantSearch';
@@ -24,7 +24,7 @@ const styles = {
         justifyContent: "flex-end",
         padding: "10px 0"
     },
-    imagery: { 
+    imagery: {
         backgroundImage: 'url(' + 'https://i.stack.imgur.com/3RzQA.jpg' + ')',
         backgroundSize: "cover",
         minHeight: "500px",
@@ -43,7 +43,7 @@ class DashBoard extends Component {
         super(props)
 
         // var exampleItems = _.range(1, 151).map(i => { return { id: i, name: 'Item ' + i }; });
-        
+
         this.state = {
             requestFailed: false,
             exampleItems: [],
@@ -51,7 +51,7 @@ class DashBoard extends Component {
         }
 
         this.onChangePage = this.onChangePage.bind(this);
-        
+
     }
 
     onChangePage(pageOfItems) {
@@ -73,26 +73,27 @@ class DashBoard extends Component {
                     restaurantData: data,
                     exampleItems:data.restaurants
                 })
+                // console.log(data.restaurants)
             }, () => {
                 this.setState({
                     requestFailed: true
                 })
             })
     }
-  
-  
-    render() {
 
-        if(this.state.requestFailed) return <p>Failed!!!</p>        
+
+    render() {
+        if(this.state.requestFailed) return <p>Failed!!!</p>
         if(!this.state.restaurantData) return <p>Loading.....</p>
         var restaurants = this.state.restaurantData.restaurants;
+        console.log(restaurants)
         return (
             <div style={ styles.root }>
                 {/* <div style={ styles.imagery}>
                 </div> */}
                 <div style={styles.nav}>
                     <LocationSearch />
-                    <RestaurantSearch data={restaurants}/>                   
+                    <RestaurantSearch data={restaurants}/>
                     <LoggedOutHeader />
                 </div>
                 <div className="right-ct-container col-md-10 col-sm-10  padding0" style={ styles.container }>
@@ -100,7 +101,7 @@ class DashBoard extends Component {
                             <Card.Group key={item.id}>
                                 <Card style={ styles.cards }>
                                     <Card.Content>
-                                        <Image floated='right' size='mini' src='https://content.jdmagicbox.com/comp/jhansi/m5/9999px510.x510.160819185440.p5m5/catalogue/the-handi-restrurent-jhansi-xzojl.jpg' />
+                                        <Image floated='right' size='small' src={item.image_url} />
                                         <Card.Header>
                                         <Link to={`/jhansi/restaurants/${item.id}`} style={{color: 'black'}}>
                                             {item.name}
@@ -112,15 +113,18 @@ class DashBoard extends Component {
                                         </Link>
                                         </Card.Meta>
                                         <Card.Description>
-                                        {item.address}
+                                        Address:   {item.address}
+                                        </Card.Description>
+                                        <Card.Description>
+                                        Hours:     {item.hours}
                                         </Card.Description>
                                     </Card.Content>
                                 </Card>
                             </Card.Group>
                     ) )}
-                <Pagination items={this.state.exampleItems} onChangePage={this.onChangePage} />                        
+                <Pagination items={this.state.exampleItems} onChangePage={this.onChangePage} />
                 </div>
-                
+
             </div>
         );
     }
