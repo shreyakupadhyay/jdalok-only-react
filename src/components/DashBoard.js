@@ -101,7 +101,7 @@ class DashBoard extends Component {
                             <Card.Group key={item.id}>
                                 <Card style={ styles.cards }>
                                     <Card.Content>
-                                        <Image floated='right' size='small' src={item.image_url} />
+                                        <Image floated='right' size='small' src={item.title_image} />
                                         <Card.Header>
                                         <Link to={`/jhansi/restaurants/${item.id}`} style={{color: 'black'}}>
                                             {item.name}

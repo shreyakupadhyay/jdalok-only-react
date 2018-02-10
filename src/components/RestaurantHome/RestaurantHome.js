@@ -32,7 +32,7 @@ class RestaurantHome extends Component {
 
     componentDidMount(){
 
-    const urlCall = window.location.href
+        const urlCall = "http://localhost:8000/api/v1/restaurants/jhansi/index"
     fetch(urlCall)
         .then(response => {
             if(!response.ok){
@@ -55,8 +55,12 @@ class RestaurantHome extends Component {
     }
 
     render(){
+        var rest = this.state.restaurantData;
         // if(this.state.requestFailed) return <p>Failed!!!</p>
         // if(!this.state.restaurantData) return <p>Loading.....</p>
+        if(rest === undefined)
+            return(<div/>);
+        else
         return (
             <div>
                 <Breadcrumb size='large' style={{ padding: '10px' }}>
@@ -67,7 +71,7 @@ class RestaurantHome extends Component {
                     <Breadcrumb.Section active>Restaurant Information</Breadcrumb.Section>
                 </Breadcrumb>
                 <div class="portrait">
-                    <img src="https://images.pexels.com/photos/729163/pexels-photo-729163.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" />
+                    <img src={rest["restaurants"][getid()]["title_image"]} />
                 </div>
                 <Tab menu={{ pointing: true }} panes={panes}/>
           </div>
